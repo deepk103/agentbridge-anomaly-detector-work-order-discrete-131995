@@ -1,0 +1,380 @@
+{
+  "id": "tpl-3823674036",
+  "name": "Anomaly Detector • Work Order (Discrete)",
+  "description": "Anomaly Detector • Work Order (Discrete) detects supplier ASNs and traces supplier ASNs snapshots; applies decision gates and observability; orchestrates via APS to prevent downtime.",
+  "industry": "Manufacturing",
+  "pattern": "Reflection",
+  "complexity": "Expert",
+  "rating": 4.6,
+  "downloads": 16026,
+  "favorites": 2852,
+  "executionTime": "13 min",
+  "tags": [
+    "oee",
+    "mes",
+    "supply-chain",
+    "reflection",
+    "manufacturing"
+  ],
+  "steps": [
+    {
+      "id": "intake",
+      "name": "Order Intake",
+      "description": "Collect, validate and normalize downtime events from WMS; attach a runId and timestamp for traceability."
+    },
+    {
+      "id": "draft-0",
+      "name": "Draft",
+      "description": "Execute draft phase for the Reflection pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "self-critique-1",
+      "name": "Self-Critique",
+      "description": "Execute self-critique phase for the Reflection pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "replenishment-0",
+      "name": "Replenishment",
+      "description": "Replenishment across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "setup-optimization-1",
+      "name": "Setup Optimization",
+      "description": "Setup Optimization across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "defect-detection-2",
+      "name": "Defect Detection",
+      "description": "Defect Detection across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "traceability-3",
+      "name": "Traceability",
+      "description": "Traceability across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "maintenance-plan-4",
+      "name": "Maintenance Plan",
+      "description": "Maintenance Plan across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "finalize",
+      "name": "Quality Summary",
+      "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to APS; return response JSON for the client."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "intake",
+      "type": "agentbridge",
+      "data": {
+        "label": "Order Intake",
+        "description": "Collect, validate and normalize downtime events from WMS; attach a runId and timestamp for traceability.",
+        "nodeType": "input",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 60,
+        "y": 120
+      }
+    },
+    {
+      "id": "draft-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Draft",
+        "description": "Execute draft phase for the Reflection pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 310,
+        "y": 120
+      }
+    },
+    {
+      "id": "self-critique-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Self-Critique",
+        "description": "Execute self-critique phase for the Reflection pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 560,
+        "y": 120
+      }
+    },
+    {
+      "id": "replenishment-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Replenishment",
+        "description": "Replenishment across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 810,
+        "y": 120
+      }
+    },
+    {
+      "id": "setup-optimization-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Setup Optimization",
+        "description": "Setup Optimization across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1060,
+        "y": 120
+      }
+    },
+    {
+      "id": "defect-detection-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "Defect Detection",
+        "description": "Defect Detection across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1310,
+        "y": 120
+      }
+    },
+    {
+      "id": "traceability-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "Traceability",
+        "description": "Traceability across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1560,
+        "y": 120
+      }
+    },
+    {
+      "id": "maintenance-plan-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "Maintenance Plan",
+        "description": "Maintenance Plan across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1810,
+        "y": 120
+      }
+    },
+    {
+      "id": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "Quality Summary",
+        "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to APS; return response JSON for the client.",
+        "nodeType": "output",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 2060,
+        "y": 120
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "intake",
+      "target": "draft-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-1",
+      "source": "draft-0",
+      "target": "self-critique-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-2",
+      "source": "self-critique-1",
+      "target": "replenishment-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-3",
+      "source": "replenishment-0",
+      "target": "setup-optimization-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-4",
+      "source": "setup-optimization-1",
+      "target": "defect-detection-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-5",
+      "source": "defect-detection-2",
+      "target": "traceability-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-6",
+      "source": "traceability-3",
+      "target": "maintenance-plan-4",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-7",
+      "source": "maintenance-plan-4",
+      "target": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    }
+  ],
+  "preview": "Order Intake → Draft → Self-Critique → Replenishment → Setup Optimization → Defect Detection → Traceability → Maintenance Plan → Quality Summary",
+  "featured": true,
+  "createdAt": "2025-12-23T14:18:37.633Z",
+  "author": "AgentBridge Team",
+  "deployments": 1605,
+  "lastDeployed": "2026-04-13T20:01:51.599Z",
+  "configuration": {
+    "provider": "gcp",
+    "region": "us-west-2",
+    "compute": "cpu-optimized"
+  },
+  "healthStatus": "healthy",
+  "deploymentCount": 824,
+  "githubRepo": "https://github.com/agentbridge/anomaly-detector-•-work-order-(discrete)",
+  "maintainer": "AgentBridge Team",
+  "agenticLayers": {
+    "reasoning": {
+      "modelType": "gpt-4o",
+      "reasoningPattern": "ReAct",
+      "contextWindow": 128000,
+      "memorySystem": "hybrid",
+      "decisionFramework": "Multi-Criteria Decision Analysis"
+    },
+    "orchestration": {
+      "workflowEngine": "n8n",
+      "coordinationPattern": "centralized",
+      "failoverStrategy": "retry",
+      "loadBalancing": "intelligent"
+    },
+    "protocol": {
+      "communicationProtocol": "MCP",
+      "messageFormat": "JSON",
+      "authenticationMethod": "OAuth2",
+      "encryptionStandard": "AES-256"
+    },
+    "governance": {
+      "policyEngine": "OPA",
+      "complianceStandards": [
+        "SOC2",
+        "GDPR"
+      ],
+      "auditTrail": true,
+      "riskAssessment": "medium",
+      "dataClassification": "internal"
+    },
+    "observability": {
+      "metricsCollection": "Prometheus",
+      "loggingFramework": "ELK",
+      "tracingSystem": "Jaeger",
+      "alertingRules": [],
+      "dashboardConfig": {
+        "layout": "grid",
+        "widgets": [
+          "metrics",
+          "logs",
+          "traces"
+        ],
+        "refreshInterval": 30
+      }
+    },
+    "intelligence": {
+      "learningCapability": "online",
+      "knowledgeBase": "vector-db",
+      "adaptationMechanism": "ml-based",
+      "performanceOptimization": "ai-driven"
+    }
+  },
+  "businessFunction": "data-preparation-node",
+  "autonomyLevel": "semi-autonomous",
+  "cognitiveCapabilities": [
+    {
+      "name": "Pattern Recognition",
+      "description": "Identifies patterns in business processes",
+      "confidenceLevel": 0.85,
+      "lastUpdated": "2026-04-14T14:18:37.690Z"
+    }
+  ],
+  "roiMetrics": {
+    "costSavings": 22923,
+    "timeReduction": 29,
+    "accuracyImprovement": 22,
+    "throughputIncrease": 47,
+    "errorReduction": 31
+  },
+  "complianceFramework": {
+    "standards": [
+      "SOC2",
+      "GDPR",
+      "ISO27001"
+    ],
+    "certifications": [
+      "SOC2 Type II"
+    ],
+    "auditFrequency": "monthly",
+    "lastAudit": "2026-03-09T21:41:23.644Z"
+  },
+  "scalingPolicy": {
+    "minInstances": 1,
+    "maxInstances": 10,
+    "scaleUpThreshold": 80,
+    "scaleDownThreshold": 20,
+    "cooldownPeriod": 300
+  }
+}
